@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .button{
+            width: 50px;
+            height: 50px;
+            font-size: 25;
+            margin: 2;
+            cursor: pointer;
+            background:#607d8b;
+            border: none;
+            color: white;
+        }
+        .txtValue{
+            width: 210px;
+            height: 30px;
+            margin: 5;
+            padding: 5;
+            border: none;
+            color:#607d8b;
+            font-size: 25;
+            text-align: end;
+        
+        }
+        .container{
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        .bg{
+            /* background-color: purple;  */
+            background: linear-gradient(to right,#e91e63, blue);
+            /* background: red; */
+            max-height: 100%;
+            height: 800px;
+        }
+        
+    </style>
+    <script>
+        function insert( number){
+            document.form.txtValue.value=document.form.txtValue.value+number;
+        }
+        function equal(){
+            var fc=document.form.txtValue.value;
+            if(fc){
+                document.form.txtValue.value=eval(fc);
+            }
+        }
+        function back(){
+            var fc=document.form.txtValue.value;
+            document.form.txtValue.value=fc.substring(0, fc.length-1);
+        }
+        function clear(){
+            document.form.txtValue.value='';
+        }
+    </script>
+</head>
+<body>
+    
+    <div class="bg">
+        
+    </div>
+    
+    <div class="container">
+        <form name="form">
+            <input class="txtValue" name="txtValue">
+        </form>
+        <table>
+            <tr>
+                <td><button type="button" class="button" value="C" onclick="clear()">C</button></td>
+                <td><button type="button" class="button" value="<" onclick="back()"><</button></td>
+                <td><button type="button" class="button" value="/" onclick="insert('/')">/</button></td>
+                <td><button type="button" class="button" value="x">x</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" class="button" value="7" onclick="insert(7)">7</button></td>
+                <td><button type="button" class="button" value="8" onclick="insert(8)">8</button></td>
+                <td><button type="button" class="button" value="9" onclick="insert(9)">0</button></td>
+                <td><button type="button" class="button" value="-" onclick="insert('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" class="button" value="4" onclick="insert(4)">4</button></td>
+                <td><button type="button" class="button" value="5" onclick="insert(5)">5</button></td>
+                <td><button type="button" class="button" value="6" onclick="insert(6)">6</button></td>
+                <td><button type="button" class="button" value="+" onclick="insert('+')">+</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" class="button" value="1" onclick="insert(1)">1</button></td>
+                <td><button type="button" class="button" value="2" onclick="insert(2)">2</button></td>
+                <td><button type="button" class="button" value="3" onclick="insert(3)">3</button></td>
+                <td rowspan="2"><button type="button" class="button" value="=" style="height: 102px;" onclick="equal()">=</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="button" class="button" value="0" style="width: 100%;" onclick="insert(0)">0</button></td>
+                <td><button type="button" class="button" value="." onclick="insert('.')">.</button></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
